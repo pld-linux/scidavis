@@ -1,0 +1,76 @@
+--- scidavis-0.2.3/scidavis/scidavis.pro	2009-07-17 15:02:39.842755567 +0200
++++ scidavis-0.2.3/scidavis/scidavis.pro.new	2009-07-17 15:06:10.504756138 +0200
+@@ -13,7 +13,7 @@
+ 
+ ### what to install
+ INSTALLS        += target       # this is the program itself
+-INSTALLS        += documentation     # README, INSTALL.html, manual (if present in the manual subfolder), etc.
++#INSTALLS        += documentation     # README, INSTALL.html, manual (if present in the manual subfolder), etc.
+ ### Comment out the next line if you do not want automatic compilation and installation of the translations
+ INSTALLS        += translationfiles
+ 
+@@ -41,12 +41,12 @@
+ win32: documentation.path = "$$INSTALLBASE"                        # ... on Winodws
+ ### Usually, the manual will be expected in the "manual" subfolder of "documentation.path" (see above).
+ ### You can override this, uncomment and adjust the path behind the '=' in the next line.
+-# manual.path = $$INSTALLBASE/share/doc/scidavis/manual
++manual.path = $$INSTALLBASE/share/doc/scidavis-manual-0.2.3
+ ### Enables choosing of help folder at runtime, instead of relying on the above path only.
+ ### The downside is that the help folder will be remembered as a configuration option, so a binary
+ ### package cannot easily update the path for its users.
+ ### Dynamic selection of the manual path was the only available option up until SciDAVis 0.2.3.
+-DEFINES += DYNAMIC_MANUAL_PATH
++#DEFINES += DYNAMIC_MANUAL_PATH
+ ### Important: translationfiles.path will be the directory where scidavis expects
+ ### the translation .qm files at runtime. Therefore you need to set it corretly even if 
+ ### you do not use this project file to generate the translation files.
+@@ -87,34 +87,34 @@
+ ### are compiled against Qt4), dynamically against everything else.
+ #############################################################################
+ 
+-unix:INCLUDEPATH  += ../3rdparty/qwtplot3d/include
+-unix:LIBS         += ../3rdparty/qwtplot3d/lib/libqwtplot3d.a
++#unix:INCLUDEPATH  += ../3rdparty/qwtplot3d/include
++#unix:LIBS         += ../3rdparty/qwtplot3d/lib/libqwtplot3d.a
+ 
+-unix:INCLUDEPATH  += ../3rdparty/qwt/src
+-unix:LIBS         += ../3rdparty/qwt/lib/libqwt.a
++#unix:INCLUDEPATH  += ../3rdparty/qwt/src
++#unix:LIBS         += ../3rdparty/qwt/lib/libqwt.a
+ 
+-unix:LIBS         += -L/usr/lib$${libsuff}
+-unix:LIBS         += -lgsl -lgslcblas -lz
++#unix:LIBS         += -L/usr/lib$${libsuff}
++#unix:LIBS         += -lgsl -lgslcblas -lz
+ ### muparser 1.30 does not compile as a shared lib on Linux
+-unix:LIBS         += -L/usr/local/lib$${libsuff}
+-unix:LIBS         += /usr/local/lib/libmuparser.a
+-unix:INCLUDEPATH  += /usr/local/include
++#unix:LIBS         += -L/usr/local/lib$${libsuff}
++#unix:LIBS         += /usr/local/lib/libmuparser.a
++#unix:INCLUDEPATH  += /usr/local/include
+ 
+ #############################################################################
+ ### Link everything dynamically
+ #############################################################################
+ 
+-#unix:INCLUDEPATH  += /usr/include/qwt5
+-#unix:LIBS         += -L/usr/lib$${libsuff}
++unix:INCLUDEPATH  += /usr/include/qwt
++unix:LIBS         += -L/usr/lib$${libsuff}
+ ## dynamically link against Qwt(3D) installed system-wide
+ ## WARNING: make sure they are compiled against >= Qt4.2
+ ## Mixing Qt 4.2 and Qt >= 4.3 compiled stuff may also 
+ ## cause problems.
+-#unix:INCLUDEPATH  += /usr/include/qwtplot3d
+-#unix:LIBS         += -lqwtplot3d
+-#unix:LIBS         += -lqwt
++unix:INCLUDEPATH  += /usr/include/qwtplot3d
++unix:LIBS         += -lqwtplot3d-qt4
++unix:LIBS         += -lqwt
+ ##dynamically link against GSL and zlib installed system-wide
+-#unix:LIBS         += -lgsl -lgslcblas -lz -lmuparser
++unix:LIBS         += -lgsl -lgslcblas -lz -lmuparser
+ 
+ #############################################################################
+ ### Default settings for Windows
