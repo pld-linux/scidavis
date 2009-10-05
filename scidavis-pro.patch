@@ -66,7 +66,7 @@
 -#unix:LIBS         += -lqwtplot3d
 -#unix:LIBS         += -lqwt
 +unix:INCLUDEPATH  += /usr/include/qwtplot3d
-+unix:LIBS         += -lqwtplot3d-qt4
++unix:LIBS         += -lqwtplot3d
 +unix:LIBS         += -lqwt
  ##dynamically link against GSL and zlib installed system-wide
 -#unix:LIBS         += -lgsl -lgslcblas -lz -lmuparser

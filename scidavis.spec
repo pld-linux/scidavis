@@ -2,7 +2,7 @@ Summary:	Scientific Data Analysis and Visualization
 Name:		scidavis
 License:	GPL v2
 Version:	0.2.3
-Release:	0.1
+Release:	0.2
 Group:		Applications/Engineering
 Source0:	http://dl.sourceforge.net/scidavis/%{name}-%{version}.tar.bz2
 # Source0-md5:	30d3f7c4e3702cec0bce8e34ea6112e7
@@ -11,17 +11,17 @@ Source1:	http://dl.sourceforge.net/scidavis/%{name}-manual-0.1_2008-02-28.tar.bz
 Patch0:		%{name}-manual.patch
 Patch1:		%{name}-pro.patch
 URL:		http://scidavis.sourceforge.net/
+BuildRequires:	QtAssistant-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	dos2unix
 BuildRequires:	gsl-devel
+BuildRequires:	muparser-devel
 BuildRequires:	python-devel
 BuildRequires:	python-PyQt4-devel
 BuildRequires:	qwt-devel
-BuildRequires:	qwtplot3d-qt4-devel
+BuildRequires:	qwtplot3d-devel
 BuildRequires:	sip
-
 #BuildRequires:	qt4-devel
-#BuildRequires:	muParser-devel
 Requires:	hicolor-icon-theme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
