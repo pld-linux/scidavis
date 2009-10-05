@@ -1,13 +1,15 @@
 Summary:	Scientific Data Analysis and Visualization
 Name:		scidavis
-Version:	0.2.3
-Release:	5%{?dist}
-Source0:	http://dl.sourceforge.net/scidavis/%{name}-%{version}.tar.bz2
-Source1:	http://dl.sourceforge.net/scidavis/%{name}-manual-0.1_2008-02-28.tar.bz2
-Patch0:		%{name}-0.2.3-manual.patch
-Patch1:		%{name}-0.2.3-pro.patch
 License:	GPL v2
+Version:	0.2.3
+Release:	0.1
 Group:		Applications/Engineering
+Source0:	http://dl.sourceforge.net/scidavis/%{name}-%{version}.tar.bz2
+# Source0-md5:	30d3f7c4e3702cec0bce8e34ea6112e7
+Source1:	http://dl.sourceforge.net/scidavis/%{name}-manual-0.1_2008-02-28.tar.bz2
+# Source1-md5:	3527477cb0685da3ddfb0ee398ba6303
+Patch0:		%{name}-manual.patch
+Patch1:		%{name}-pro.patch
 URL:		http://scidavis.sourceforge.net/
 BuildRequires:	desktop-file-utils
 BuildRequires:	qwtplot3d-qt4-devel
