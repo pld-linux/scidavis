@@ -12,15 +12,16 @@ Patch0:		%{name}-manual.patch
 Patch1:		%{name}-pro.patch
 URL:		http://scidavis.sourceforge.net/
 BuildRequires:	desktop-file-utils
-BuildRequires:	qwtplot3d-qt4-devel
-BuildRequires:	qt4-devel
-BuildRequires:	sip-devel
-BuildRequires:	PyQt4-devel
 BuildRequires:	dos2unix
 BuildRequires:	gsl-devel
 BuildRequires:	python-devel
-BuildRequires:	muParser-devel
+BuildRequires:	python-PyQt4-devel
 BuildRequires:	qwt-devel
+BuildRequires:	qwtplot3d-qt4-devel
+BuildRequires:	sip
+
+#BuildRequires:	qt4-devel
+#BuildRequires:	muParser-devel
 Requires:	hicolor-icon-theme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
