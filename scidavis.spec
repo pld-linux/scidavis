@@ -1,12 +1,12 @@
 Summary:	Scientific Data Analysis and Visualization
 Name:		scidavis
-License:	GPL v2
 Version:	0.2.3
 Release:	0.2
+License:	GPL v2
 Group:		Applications/Engineering
-Source0:	http://dl.sourceforge.net/scidavis/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/scidavis/%{name}-%{version}.tar.bz2
 # Source0-md5:	30d3f7c4e3702cec0bce8e34ea6112e7
-Source1:	http://dl.sourceforge.net/scidavis/%{name}-manual-0.1_2008-02-28.tar.bz2
+Source1:	http://downloads.sourceforge.net/scidavis/%{name}-manual-0.1_2008-02-28.tar.bz2
 # Source1-md5:	3527477cb0685da3ddfb0ee398ba6303
 Patch0:		%{name}-manual.patch
 Patch1:		%{name}-pro.patch
@@ -16,13 +16,14 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	dos2unix
 BuildRequires:	gsl-devel
 BuildRequires:	muparser-devel
-BuildRequires:	python-devel
 BuildRequires:	python-PyQt4-devel
+BuildRequires:	python-devel
+#BuildRequires:	qt4-devel
 BuildRequires:	qwt-devel
 BuildRequires:	qwtplot3d-devel
 BuildRequires:	sip
-#BuildRequires:	qt4-devel
-Requires:	hicolor-icon-theme
+Requires(post,postun):	gtk-update-icon-cache
+Requires(post,postun):	hicolor-icon-theme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -73,18 +74,12 @@ mv $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/128x128/mimetypes/scidavis.png $RPM_
 mv $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/64x64/mimetypes/scidavis.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/64x64/mimetypes/application-x-sciprj.png
 
 %post
-touch --no-create %{_datadir}/icons/hicolor || :
-if [ -x %{_bindir}/gtk-update-icon-cache ]; then
-	%{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
-fi
+%update_icon_cache hicolor
 update-desktop-database &> /dev/null || :
 update-mime-database %{_datadir}/mime &> /dev/null || :
 
 %postun
-touch --no-create %{_datadir}/icons/hicolor || :
-if [ -x %{_bindir}/gtk-update-icon-cache ]; then
-	%{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
-fi
+%update_icon_cache hicolor
 update-desktop-database &> /dev/null || :
 update-mime-database %{_datadir}/mime &> /dev/null || :
 
