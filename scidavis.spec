@@ -49,7 +49,7 @@ sed -i -e 's/50/100/' scidavis/scidavis.xml
 %build
 cd scidavis
 qmake-qt4 scidavis.pro
-%{__make} %{?_smp_mflags}
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
