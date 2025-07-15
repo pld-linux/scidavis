@@ -41,8 +41,8 @@ This package contains the manual for SciDAVis.
 
 %prep
 %setup -q -a 1
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 sed -i -e 's/50/100/' scidavis/scidavis.xml
 
